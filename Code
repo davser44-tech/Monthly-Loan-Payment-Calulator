@@ -1,0 +1,22 @@
+def loan_payment():
+    loan_amount = int(input("How many loans do you have? "))
+    loans = {}
+
+    for loan_num in range(1, loan_amount + 1):
+        loan = float(input(f"What is the amount you owe for loan {loan_num}? $"))
+        loans[f"Loan {loan_num}"] = loan
+        interest = float(input("What is the interest rate? % "))
+        loans[f"Interest {loan_num}"] = interest / 100
+
+
+
+    total_loans = 0
+    for loan_num in range(1, loan_amount + 1):
+        total_loans += loans[f"Loan {loan_num}"]
+    print(f"Total Loans: ${total_loans:.2f}")
+
+    for loan_num in range(1, loan_amount + 1):
+        monthly = (loans[f"Loan {loan_num}"] * loans[f"Interest {loan_num}"]) / 12
+        print(f"Your total monthly interest payment for loan {loan_num} is ${monthly:.2f}")
+
+loan_payment()
